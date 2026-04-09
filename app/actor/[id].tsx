@@ -32,14 +32,12 @@ interface MovieCredit {
 }
 
 export default function ActorProfileScreen() {
-  // 1. Captura o ID do ator vindo da URL
   const { id } = useLocalSearchParams();
 
   const [actor, setActor] = useState<ActorDetails | null>(null);
   const [movies, setMovies] = useState<MovieCredit[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // 2. Efeito colateral reativo ao ID
   useEffect(() => {
     const fetchActorData = async () => {
       setIsLoading(true);
@@ -68,9 +66,8 @@ export default function ActorProfileScreen() {
     };
 
     fetchActorData();
-  }, [id]); // Dependência fundamental: recarrega se o ID da rota mudar
+  }, [id]);
 
-  // 3. Renderização do item da filmografia (Navegação Cíclica)
   const renderMovieItem = ({ item }: { item: MovieCredit }) => (
     <Link href={`/movie/${item.id}`} asChild>
       <Pressable style={styles.movieCard}>
@@ -90,7 +87,6 @@ export default function ActorProfileScreen() {
     </Link>
   );
 
-  // 4. Estados de interface
   if (isLoading) {
     return (
       <View style={styles.center}>
@@ -136,7 +132,6 @@ export default function ActorProfileScreen() {
         <Text style={[styles.sectionTitle, { marginTop: 24 }]}>Filmografia</Text>
       </View>
 
-      {/* FlatList horizontal dentro do ScrollView não gera avisos no React Native */}
       <FlatList
         horizontal
         data={movies}
