@@ -48,6 +48,9 @@ jobs:
       - name: Expo Web Build
         run: npx expo export --platform web
 
+      - name: Bypass Jekyll on GitHub Pages
+        run: touch dist/.nojekyll
+
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
