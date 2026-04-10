@@ -17,9 +17,6 @@
       "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@嶺po(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)"
     ]
   },
-  "experiments": {
-    "baseUrl": "/ds151-code-06-navigation"
-  },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",
     "@react-navigation/bottom-tabs": "^7.4.0",
